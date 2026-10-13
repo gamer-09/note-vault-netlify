@@ -13,7 +13,7 @@ const developmentCspRemoval = {
 };
 
 export default defineConfig({
-  base: process.env.VITE_BASE_PATH || '/',
+  base: '/',
   plugins: [react(), developmentCspRemoval],
   server: {
     host: '0.0.0.0',

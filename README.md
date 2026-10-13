@@ -1,6 +1,6 @@
 # Quiet Notes
 
-**[Open Quiet Notes →](https://gamer-09.github.io/Note_vault/)**
+**[Open Quiet Notes →](https://note-vault.netlify.app/)**
 
 ![Quiet Notes notebook interface](docs/quiet-notes-preview.png)
 
@@ -76,7 +76,7 @@ npm test
 
 ## Deployment
 
-The production application is deployed at [gamer-09.github.io/Note_vault](https://gamer-09.github.io/Note_vault/) using GitHub Pages. Pull requests run `npm audit`, the regression suite, a Vite build with the `/Note_vault/` base path, and a production-CSP check without deploying. Pushes to `main` run the same checks and then deploy the `dist` artifact through `.github/workflows/deploy-pages.yml`.
+The production application is deployed to Netlify at [note-vault.netlify.app](https://note-vault.netlify.app/). Pull requests run `npm audit`, the regression suite, a production Vite build, and a production-CSP check without deploying (`.github/workflows/ci.yml`). Pushes to `main` run the same checks, and Netlify builds and publishes `dist/` (see `netlify.toml`).
 
 This is the working production application. Notes and encrypted private-workspace data created there are stored in that browser profile. No paid hosting service or application backend is required.
 
