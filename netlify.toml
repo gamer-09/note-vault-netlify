@@ -7,3 +7,13 @@
 # Vite 8 and the pinned toolchain need a modern Node; match the CI workflow.
 [build.environment]
   NODE_VERSION = "24"
+
+# Headers Netlify serves from its edge. The production CSP is an HTML meta policy,
+# which browsers do not let express frame-ancestors, so framing is refused here
+# instead; the no-referrer policy the build already declares is restated too.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'none'"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "no-referrer"

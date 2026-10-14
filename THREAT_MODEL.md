@@ -6,7 +6,7 @@ Quiet Notes is an ordinary local notepad with a concealed private workspace. The
 
 This document describes the intended security boundary. It is not a claim that the application can make data physically invisible, resist a compromised operating system, or provide forensic deniability.
 
-Quiet Notes is a static, Netlify-hosted application with no account service, application API, remote database, analytics, email, payment, or user-file hosting. Ordinary notes are local and unencrypted; only the concealed private workspace is encrypted. Production builds add a restrictive Content Security Policy as an HTML meta policy. A meta policy cannot express every directive — notably `frame-ancestors` — so server-controlled headers remain the stronger option.
+Quiet Notes is a static, Netlify-hosted application with no account service, application API, remote database, analytics, email, payment, or user-file hosting. Ordinary notes are local and unencrypted; only the concealed private workspace is encrypted. Production builds add a restrictive Content Security Policy as an HTML meta policy, and the Netlify deploy also serves `Content-Security-Policy: frame-ancestors 'none'`, `X-Frame-Options: DENY`, and `Referrer-Policy: no-referrer` from the edge. A meta policy cannot express every directive — notably `frame-ancestors` — so that directive is enforced by the server header rather than the in-document policy.
 
 ## Assets being protected
 
